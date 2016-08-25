@@ -9,6 +9,11 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (strong, nonatomic) IBOutlet UILabel *firstCounter;
+- (IBAction)firstButton:(UIButton *)sender;
+@property (strong, nonatomic) IBOutlet UIButton *countButton;
+- (IBAction)secondButton:(UIButton *)sender;
+@property (strong, nonatomic) IBOutlet UILabel *secondCounter;
 
 @end
 
@@ -16,7 +21,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.firstCounter.text = @"US";
+    self.secondCounter.text = @"THEM";
+
 }
 
 
@@ -26,4 +33,23 @@
 }
 
 
+- (IBAction)firstButton:(UIButton *)sender {
+    NSString *senderTitle = sender.currentTitle;
+    
+    NSInteger counter = senderTitle.integerValue;
+    counter++;
+    NSString *stringCounter = [NSString stringWithFormat: @"%@",@(counter)];
+    [sender setTitle: stringCounter forState:UIControlStateNormal];
+
+    
+}
+
+- (IBAction)secondButton:(UIButton *)sender {
+    NSString *senderTitle = sender.currentTitle;
+    
+    NSInteger counter = senderTitle.integerValue;
+    counter++;
+    NSString *stringCounter = [NSString stringWithFormat: @"%@",@(counter)];
+    [sender setTitle: stringCounter forState:UIControlStateNormal];
+}
 @end
